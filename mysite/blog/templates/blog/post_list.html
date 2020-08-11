@@ -11,18 +11,35 @@
     </head>
 <body>
 
+
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v8.0" nonce="efVr4CRH"></script>
+
+
+
 <div class="page-header">
     <h1><a href="/">Kunal Kumar Blog</a></h1>
 </div>
 
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="standard" data-action="like" data-size="large" data-share="false"></div>
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
 
-{% for post in posts%}
-    <div class="post">
-        <h2><a href="">{{ post.title}}</a></h2>
-        <p>published :{{ post.published_date}}</p>
-        <p>Author : {{post.author}}</p>
-        <p>{{post.text|linebreaksbr }}</p>
+                    <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5" data-width=""></div>
+
+                  
+                </div>
+            {% endfor %}
+        </div>
     </div>
-{% endfor %}    
+</div>  
 </body>
 </html>
